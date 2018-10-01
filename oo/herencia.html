@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Herencia en javaScript</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Persona(dni, nombre) {
+			this.dni = dni;
+			this.nombre = nombre;
+		}
+
+		Persona.prototype.saludar = function() {
+			console.log('Hola, me llamo ' + this.nombre);
+		};
+
+		function Estudiante(dni, nombre, numeroMatricula) {
+			Persona.prototype.constructor.call(this, dni, nombre);
+			this.numeroMatricula = numeroMatricula;
+		}
+		Estudiante.prototype = new Persona();
+		Estudiante.prototype.constructor = Estudiante;
+
+		Estudiante.prototype.estudiar = function() {
+			console.log('Estudiando...');
+		};
+
+		var yo = new Estudiante('1', 'Omar', '123456');
+		yo.saludar();
+		yo.estudiar();
+
+		console.log(yo.constructor);
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teclas y eventos en JavaScript</title>
+</head>
+<body>
+	<h1>Teclas y eventos en JavaScript</h1>
+	<script type="text/javascript">
+		(function () {
+			function manejador(elEvento) {
+				var evento = elEvento || window.event;
+				alert('[' + evento.type + '] El código de la tecla pulsada es ' + evento.keyCode);
+			}
+
+			function manejador2(elEvento) {
+				var evento = elEvento || window.event;
+				var codigo = evento.charCode || evento.keyCode;
+				var caracter = String.fromCharCode(codigo);
+				alert('[' + evento.type + '] El código ASCII de la tecla pulsada es ' + codigo + ' y el caracter es: ' + caracter);
+			}
+
+			document.onkeyup = manejador;
+			document.onkeydown = manejador;
+			document.onkeypress = manejador2;
+		})()
+	</script>
+</body>
+</html>

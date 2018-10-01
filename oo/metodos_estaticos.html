@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Métodos Estáticos</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// Ejemplo de propiedades estática en una clase predefinida.
+		console.log(Math.PI);
+
+		function Convertidor() {
+			
+		}
+		Convertidor.GRADOS_A_RADIANES = Math.PI / 180;
+		Convertidor.RADIANES_A_GRADOS = 180 / Math.PI;
+
+		Convertidor.aRadianes = function (grados) {
+			return grados * this.GRADOS_A_RADIANES;
+		}
+
+		Convertidor.aGrados = function (radianes) {
+			return radianes * this.RADIANES_A_GRADOS;
+		}
+
+		console.log('180 grados son: ' + Convertidor.aRadianes(180) + ' radianes.');
+		console.log('2PI radianes son: ' + Convertidor.aGrados(2 * Math.PI) + ' grados.');
+	</script>
+</body>
+</html>

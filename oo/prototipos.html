@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Prototipos en JavaScript</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Persona(dni, nombre) {
+			this.dni = dni;
+			this.nombre = nombre;
+			this.numeroPiernas = 2;
+		}
+
+		Persona.prototype.saludar = function() {
+			console.log('Hola me llamo ' + this.nombre);
+		};
+
+		var yo = new Persona('1234567', 'Marcos');
+		var tu = new Persona('7654321', 'Pedro');
+
+		Persona.prototype.numeroPiernas = 2;
+		Persona.prototype.prueba = function() { };
+
+		console.log(yo);
+		console.log(tu);
+
+		yo.saludar();
+		tu.saludar();
+
+		Persona.prototype.numeroPiernas = 3;
+
+		console.log(yo);
+		console.log(tu);
+	</script>
+</body>
+</html>

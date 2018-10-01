@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Métodos Privilegiados</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Persona(dni, nombre) {
+			var edad = 0;
+			var edadParaSaludar = 1;
+
+			this.dni = dni;
+			this.nombre = nombre;
+		
+			// Métodos que acceden a las propiedades o métodos privados aquí.
+			// Métodos privilegiados (se declaran en el objeto y no en el prototype)
+			this.getEdad = function () {
+				return edad;
+			}
+
+			this.setEdad = function (nuevaEdad) {
+				edad = nuevaEdad;
+			}
+
+			this.getEdadParaSaludar = function () {
+				return edadParaSaludar;
+			}
+		}
+
+		Persona.prototype.saludar = function(nombre) {
+			console.log(this.nombre + ' te saluda ' + nombre);
+		};
+
+		Persona.prototype.crecer = function() {
+			this.setEdad( (this.getEdad() + 1) );
+
+			if (this.getEdad() >= this.getEdadParaSaludar()) {
+				this.saludar('.|.');
+			}
+		};
+
+		var yo = new Persona('1', 'Omar');
+		console.log(yo.edad);
+		
+		yo.saludar('Pepito');
+		yo.crecer();
+
+	</script>
+</body>
+</html>

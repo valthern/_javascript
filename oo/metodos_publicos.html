@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Métodos Públicos</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Persona(dni, nombre) {
+			this.dni = dni;
+			this.nombre = nombre;
+
+			// SI DEJAMOS AQUÍ AL MÉTODO ÉSTE SE COPIARÁ PARA CADA OBJETO QUE SE QUIERA CREAR, POR ELLO
+			// LO VAMOS A DECLARAR EN EL PROTOTYPE, CON LA FINALIDAD DE AHORRAR MEMORIA Y QUE NO LA CONSUMA
+			// CADA COPIA DEL MÉTODO EN CADA OBJETO CREADO
+			
+			// this.saludar = function (nombre) {
+			// 	console.log(this.nombre + ' te saluda ' + nombre);
+			// }
+		}
+		
+		Persona.prototype.saludar = function(nombre) {
+			console.log(this.nombre + ' te saluda ' + nombre);
+		};
+
+		var yo = new Persona('1', 'Omar');
+		yo.dni = '1234567';
+		yo.saludar('Guaguantonio');
+	</script>
+</body>
+</html>

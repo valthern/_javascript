@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Polimorfismo en JavaScript</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/miapp.js"></script>
+	<script type="text/javascript" src="js/pantalla.js"></script>
+	<script type="text/javascript" src="js/pantalla_menu.js"></script>
+	<script type="text/javascript" src="js/pantalla_detalle.js"></script>
+	<script type="text/javascript">
+		var app = new MiApp();
+		app.inicializar();
+
+		console.log(app);
+		console.log(app.pantallaActual);
+
+		app.actualizarPantalla(MiApp.PANTALLA_DETALLE);
+		console.log(app.pantallaActual);
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Propiedades privadas</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Persona(dni, nombre) {
+			var edad = 0;
+
+			this.dni = dni;
+			this.nombre = nombre;
+			//this._edad = 0;
+
+			// Los métodos que acederán a la propiedad privada deberán ser declaradas dentro del cuerpo de la función constructora
+			// Estos métdodos deben ser declarados aquí dentro
+		}
+
+		var yo = new Persona();
+		console.log(yo.edad);
+
+	</script>
+</body>
+</html>

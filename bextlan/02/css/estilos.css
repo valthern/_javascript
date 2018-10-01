@@ -1,0 +1,51 @@
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: lavender;
+	font-family: Helvetica;
+	font-size: 16px;
+	text-align: center;
+}
+
+fieldset{
+	background: white;
+	border: thin solid skyblue;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+form{
+	margin: .5em auto;
+	width: 80%;
+}
+
+input[type="button"]{
+	background: #F60;
+	border: thin solid transparent;
+	border-radius: .5em;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 1em;
+	padding: .5em;
+}
+
+input[type="button"]:hover {
+	background: skyblue;
+	border: thin solid #F60;
+	border-radius: 0;
+	color: #F60;
+}
+
+legend{
+	color: #F60;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.cambio{
+	transition: all .5s ease-in-out;
+}
