@@ -5,7 +5,26 @@
 		<title>Ejercicio 9 - Crear, eliminar y modificar nodos DOM</title>
 		<script type="text/javascript">
 		function genera() {
+			var id;
+			var divPrimero = document.getElementById('primero');
+			var divSegundo = document.getElementById('segundo');
 			
+			var divNuevoPrimero = document.createElement('div');
+			id = document.createAttribute('id');
+			id.nodeValue = 'primero';
+			divNuevoPrimero.attributes.setNamedItem(id);
+			var textoNuevoPrimero = document.createTextNode(Math.floor(Math.random() * 100));
+			divNuevoPrimero.appendChind(textoNuevoPrimero);
+			
+			var divNuevoSegundo = document.createElement('div');
+			id = document.createAttribute('id');
+			id.nodeValue = 'segundo';
+			divNuevoSegundo.attributes.setNamedItem(id);
+			var textoNuevoSegundo = document.createTextNode(Math.floor(Math.random() * 100));
+			divNuevoSegundo.appendChind(textoNuevoSegundo);
+
+			divPrimero.parentNode.replaceChild(divNuevoPrimero, divPrimero);
+			divSegundo.parentNode.replaceChild(divNuevoSegundo, divSegundo);
 		}
 
 		function compara() {
