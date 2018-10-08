@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+	<title>Clases y Objetos en JavaScript</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		img.altura{
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Clases y Objetos en JavaScript</h1>
+	<section class="movies"></section>
+	<script type="text/javascript">
+		(function () {
+			/*
+			 4 Formas de crear Objetos en JavaScript
+			 1.- Obejtos Literales
+			 2.- Prototipo Object()
+			 3.- Función Constructora
+			 4.- Clases (A partir de ES6 ES2015)
+			*/
+			'use strict';
+
+			var movie1 = {
+				title: 'Batman vs Superman: Dawn of Justice',
+				year: 2016,
+				genres: 'Action, Adventure, Fantasy',
+				poster: 'https://s.s-bol.com/imgbase0/imagebase3/large/FC/1/3/5/2/9200000049952531.jpg',
+				getInfo: function () {
+					return '<article><h2>' + this.title + '</h2><img src="' + this.poster + '" class="altura"><p>' + this.genres + '</p><p>' + this.year + '</p></article>';
+				}
+			};
+
+			console.log(movie1);
+
+			var movie2 = new Object();
+			movie2.title = 'Captain America: Civil War';
+			movie2.year = 2016;
+			movie2.genres = 'Action, Adventure, Sci-Fi';
+			movie2.poster = 'https://proxy.duckduckgo.com/iur/?f=1&image_host=http%3A%2F%2Fapplelives.com%2Fwp-content%2Fuploads%2F2016%2F03%2FCaptain-America-Civil-War-WALLPAPER7.jpg&u=https://applelives.com/wp-content/uploads/2016/03/Captain-America-Civil-War-WALLPAPER7.jpg';
+			movie2.getInfo = function () {
+					return '<article><h2>' + this.title + '</h2><img src="' + this.poster + '" class="altura"><p>' + this.genres + '</p><p>' + this.year + '</p></article>';
+				}
+
+			console.log(movie2);
+
+			function MovieFunction (title, year, genres, poster) {
+				var o = this;
+
+				o.title = title;
+				o.year = year;
+				o.genres = genres;
+				o.poster = poster;
+
+				o.getInfo = function () {
+					return '<article><h2>' + o.title + '</h2><img src="' + o.poster + '" class="altura"><p>' + o.genres + '</p><p>' + o.year + '</p></article>';
+				}
+			}
+
+			var movie3 = new MovieFunction('Suicide Squad', 2016, 'Action, Adventure, Fantasy', 'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.GQ7_zmXTg0GiExxcqeODVQHaK-%26pid%3D15.1&f=1');
+
+			console.log(movie3);
+
+			class MovieClass{
+				constructor(title, year, genres, poster){
+					this.title = title;
+					this.year = year;
+					this.genres = genres;
+					this.poster = poster;
+				}
+
+				getInfo(){
+					return '<article><h2>' + this.title + '</h2><img src="' + this.poster + '" class="altura"><p>' + this.genres + '</p><p>' + this.year + '</p></article>';
+				}
+			}
+
+			var movie4 = new MovieClass('Dr. Strange', 2016, 'Action, Adventure, Fantasy', 'https://m.media-amazon.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_.jpg');
+
+			console.log(movie4);
+
+			document.querySelector('.movies').innerHTML = movie1.getInfo() + movie2.getInfo() + movie3.getInfo() + movie4.getInfo();
+		})();
+	</script>
+</body>
+</html>
