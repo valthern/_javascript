@@ -14,21 +14,23 @@
 			id.nodeValue = 'primero';
 			divNuevoPrimero.attributes.setNamedItem(id);
 			var textoNuevoPrimero = document.createTextNode(Math.floor(Math.random() * 100));
-			divNuevoPrimero.appendChind(textoNuevoPrimero);
+			divNuevoPrimero.appendChild(textoNuevoPrimero);
 			
 			var divNuevoSegundo = document.createElement('div');
 			id = document.createAttribute('id');
 			id.nodeValue = 'segundo';
 			divNuevoSegundo.attributes.setNamedItem(id);
 			var textoNuevoSegundo = document.createTextNode(Math.floor(Math.random() * 100));
-			divNuevoSegundo.appendChind(textoNuevoSegundo);
+			divNuevoSegundo.appendChild(textoNuevoSegundo);
 
 			divPrimero.parentNode.replaceChild(divNuevoPrimero, divPrimero);
 			divSegundo.parentNode.replaceChild(divNuevoSegundo, divSegundo);
 		}
 
 		function compara() {
-
+			var primero = document.getElementById('primero').innerHTML;
+			var segundo = document.getElementById('segundo').innerHTML;
+			document.getElementById('resultado').innerHTML = primero > segundo ? primero : segundo;
 		}
 		</script>
 
