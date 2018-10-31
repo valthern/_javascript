@@ -98,4 +98,36 @@ window.onload = function () {
 	});
 
 	document.writeln('"' + "    neat     ".trim() + '"' + br);
+
+	var myValue = function () {
+		var value = 0;
+
+		return {
+			increment: function (inc) {
+				value += typeof inc === 'number' ? inc : 1;
+			},
+			getValue: function () {
+				return value;
+			}
+		};
+	}();
+
+	var quo = function (status) {
+		return {
+			get_status:function () {
+				return status;
+			}
+		};
+	};
+
+	var myQuo = quo("amazed");
+	document.writeln(myQuo.get_status());
+
+	var fade = function (node) {
+		var level = 1;
+		var step = function () {
+			var hex = level.toString(16);
+			node.style.
+		}
+	}
 };
